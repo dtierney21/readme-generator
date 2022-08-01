@@ -1,8 +1,8 @@
 
-   # v
+   # 
 
    ## Description
-   v
+   
 
    ## Table of Contents
    * [Installation](#installation)
@@ -13,22 +13,22 @@
    * [Questions](#questions)
 
    ## Installation
-   v
+   
 
    ## Usage
-   v
+   
 
    ## License
-   ![License](https://img.shields.io/badge/license-Apache-green.svg) <br />
-   https://choosealicense.com/licenses/Apache/
+   ![License](https://img.shields.io/badge/license-BSD-orange.svg) <br />
+   https://choosealicense.com/licenses/BSD/
 
    ## Contributing
-   v
+   
 
    ## Tests
-   v
+   
 
    ## Questions
-   GitHib Profile: htttps://github.com/v <br />
-   You can reach me at v with any questions.
+   GitHib Profile: htttps://github.com/ <br />
+   You can reach me at  with any questions.
    
