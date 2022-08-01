@@ -23,8 +23,7 @@ function renderLicenseBadge(license) {
                 color = 'lightgrey'
                 break;                
         }
-        console.log(`http://img.shields.io/badge/license-${license}-${color}.svg`);
-        return `http://img.shields.io/badge/license-${license}-${color}.svg`;
+        return `https://img.shields.io/badge/license-${license}-${color}.svg`;
     }
     return '';
 }
@@ -77,7 +76,7 @@ function generateMarkdown(data) {
    ${data.usageInfo}
 
    ## License
-   ![badge](${renderLicenseBadge(data.license)}) <br />
+   ![License](${renderLicenseBadge(data.license)}) <br />
    ${renderLicenseLink(data.license)}
 
    ## Contributing
