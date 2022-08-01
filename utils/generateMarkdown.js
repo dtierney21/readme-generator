@@ -3,7 +3,7 @@
 function renderLicenseBadge(license) {
     if(data.license != null) {
         let color;
-        switch (data.license) {
+        switch (license) {
             case 'MIT':
                 color = 'Yellow'
                 break;
@@ -31,18 +31,19 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
-    if(data.license != null) {
+function renderLicenseLink(license) {
+    if(license != null) {
         return `https://choosealicense.com/licenses/mit/${data.license}/`;
     }
     return '';
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
     function renderLicenseLink(license) {}
-    if(data.license != null) {
-        fetch(`https://api.github.com/licenses/${data.license}`)
+    if(license != null) {
+        fetch(`https://api.github.com/licenses/${license}`)
         .then(function (response) {
             return response.json();
         })

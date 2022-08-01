@@ -36,7 +36,7 @@ const questions = [
         name: 'tests'
     },
     {
-        type: 'input',
+        type: 'list',
         message: 'License Type:',
         name: 'license',
         choices: ['MIT', 'GNU', 'Apache', 'BSD', 'ISC', 'Other']
@@ -56,20 +56,22 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
-        if(err) throw new Error(err);
-        console.log('README Successfully Generated!');
+        err ? console.error(err) : console.log('README Successfully Generated!');
     }); 
 }
 
 // TODO: Create a function to initialize app
 function init() {
-    return inquirer.prompt(questions)
-    .then(answers => {
-        const data = generatePage(answers);
+    inquirer.prompt(questions)
+    .then((answers) => {
+        const data = markdown(answers);
+        console.log('---------------');
         console.log(answers);
-        writeToFile('./readme/README.md', data, err => {
-            err ? console.error(err) : console.log('Success!')
-        });
+        console.log('---------------');
+        console.log('+++++++++++++++');
+        console.log(data);
+        console.log('+++++++++++++++');
+        writeToFile('./readme/README.md', JSON.stringify(data));
     });
 }
 
