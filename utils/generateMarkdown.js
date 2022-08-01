@@ -1,14 +1,14 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-    if(data.license != null) {
+    if(license != null) {
         let color;
         switch (license) {
             case 'MIT':
-                color = 'Yellow'
+                color = 'yellow'
                 break;
             case 'GNU':
-                color = 'Blue'
+                color = 'blue'
                 break;
             case 'Apache':
                 color = 'green'
@@ -23,7 +23,8 @@ function renderLicenseBadge(license) {
                 color = 'lightgrey'
                 break;                
         }
-        return `[![License](http://img.shields.io/badge/license-${data.license}-${color}.svg)`;
+        console.log(`http://img.shields.io/badge/license-${license}-${color}.svg`);
+        return `http://img.shields.io/badge/license-${license}-${color}.svg`;
     }
     return '';
 }
@@ -33,7 +34,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
     if(license != null) {
-        return `https://choosealicense.com/licenses/mit/${data.license}/`;
+        return `https://choosealicense.com/licenses/${license}/`;
     }
     return '';
 }
@@ -41,7 +42,6 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-    function renderLicenseLink(license) {}
     if(license != null) {
         fetch(`https://api.github.com/licenses/${license}`)
         .then(function (response) {
@@ -56,51 +56,39 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return;
-  `
-    renderLicenseBadge(data.license) 
+  return `
    # ${data.title}
 
    ## Description
-
    ${data.description}
 
    ## Table of Contents
+   * [Installation](#installation)
+   * [Usage](#usage)
+   * [Contributing](#contributing)
+   * [Tests](#tests)
+   * [License](#license)
+   * [Questions](#questions)
 
-    *[Description](#description)
-    *[Installation](#installation)
-    *[Usage](#usage)
-    *[Contributing](#contributing)
-    *[Tests](#tests)
-    *[License](#license)
-    *[Questions]{#questions}
+   ## Installation
+   ${data.installation}
 
-    ## Installation
+   ## Usage
+   ${data.usageInfo}
 
-    ${data.installation}
+   ## License
+   ![badge](${renderLicenseBadge(data.license)}) <br />
+   ${renderLicenseLink(data.license)}
 
-    ## Usage
+   ## Contributing
+   ${data.contribution}
 
-    ${data.usageInfo}
+   ## Tests
+   ${data.tests}
 
-    ## License
-
-    renderLicenseBadge(${data.license})
-    renderLicenseLink(${data.license})
-    renderLicenseSection(${data.license})
-
-    ## Contributing
-
-    ${data.contribution}
-
-    ## Tests
-
-    ${data.tests}
-
-    ## Questions
-    
-    GitHib Profile: htttps://github.com/${data.github}
-    You can reach me at ${data.email} with any questions.
+   ## Questions
+   GitHib Profile: htttps://github.com/${data.github} <br />
+   You can reach me at ${data.email} with any questions.
    `;
 }
 
