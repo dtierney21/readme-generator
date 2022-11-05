@@ -1,7 +1,7 @@
 // Packages needed for this application
 const markdown = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
-const fs = require('fs')
+const fs = require('fs');
 
 // An array of questions for user input
 const questions = [
@@ -50,20 +50,19 @@ const questions = [
         type: 'input',
         message: 'Email Address:',
         name: 'email',
-    }
+    },
 ];
 
 // Function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
+    fs.writeFile(fileName, data, (err) => {
         err ? console.error(err) : console.log('README Successfully Generated!');
-    }); 
+    });
 }
 
 // Function to initialize app
 function init() {
-    inquirer.prompt(questions)
-    .then(answers => {
+    inquirer.prompt(questions).then((answers) => {
         const data = markdown(answers);
         writeToFile('./readme/README.md', data);
     });
