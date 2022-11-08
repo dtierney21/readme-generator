@@ -86,7 +86,7 @@ ${data.tests}
 
 ## Questions and Comments
 ### GitHub Profile
-htttps://github.com/${data.github} <br />
+https://github.com/${data.github} <br />
 ### Email
 You can reach me at ${data.email} with any questions.
 `;
